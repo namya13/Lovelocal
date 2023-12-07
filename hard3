@@ -1,0 +1,63 @@
+###You are given a string s. You can convert s to a 
+palindrome by adding characters in front of it.
+Return the shortest palindrome you can find by performing this transformation.
+
+
+  #include <stdio.h>
+#include <string.h>
+
+
+int isPalindrome(char *str, int start, int end) {
+    while (start < end) {
+        if (str[start] != str[end]) {
+            return 0; 
+        }
+        start++;
+        end--;
+    }
+    return 1; 
+}
+
+/
+char* shortestPalindrome(char *s) {
+    int len = strlen(s);
+    int i;
+
+   
+    if (isPalindrome(s, 0, len - 1)) {
+        return s;
+    }
+
+    char* result = (char *)malloc(sizeof(char) * (2 * len + 1)); 
+
+   
+    for (i = len - 1; i >= 0; i--) {
+        if (isPalindrome(s, 0, i)) {
+            break;
+        }
+    }
+
+    
+    int k = 0;
+    for (int j = len - 1; j > i; j--) {
+        result[k++] = s[j];
+    }
+    result[k] = '\0';
+
+    strcat(result, s); 
+    return result;
+}
+
+int main() {
+char input[100];
+    printf("Enter a string: ");
+    scanf("%s", input);
+
+    char* shortest_palindrome = shortestPalindrome(input);
+
+    printf("Shortest Palindrome: %s\n", shortest_palindrome);
+
+    free(shortest_palindrome); 
+
+    return 0;
+}
