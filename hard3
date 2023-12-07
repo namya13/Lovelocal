@@ -7,12 +7,12 @@ Return the shortest palindrome you can find by performing this transformation.
 #include <string.h>
 
 
-int isPalindrome(char *str, int start, int end) {
-    while (start < end) {
-        if (str[start] != str[end]) {
+int isPalindrome(char *str, int begin, int end) {
+    while (begin < end) {
+        if (str[begin] != str[end]) {
             return 0; 
         }
-        start++;
+        begin++;
         end--;
     }
     return 1; 
