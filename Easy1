@@ -24,7 +24,7 @@ int lengthOfLastWord(char *s) {
 }
 
 int main() {
-    char input[100]; // Adjust the size based on your needs
+    char input[100]; 
     printf("Enter a string: ");
     fgets(input, sizeof(input), stdin);
 
