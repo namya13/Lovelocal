@@ -5,7 +5,7 @@ substring consisting of non-space characters only.
 #include <stdio.h>
 #include <string.h>
 
-int lengthOfLastWord(char *s) {
+int length(char *s) {
     int length = 0;
     int i = strlen(s) - 1;
 
@@ -31,7 +31,7 @@ int main() {
     
     input[strcspn(input, "\n")] = 0;
 
-    int result = lengthOfLastWord(input);
+    int result = length(input);
     printf("Length of the last word: %d\n", result);
 
     return 0;
